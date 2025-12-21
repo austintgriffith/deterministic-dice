@@ -1,4 +1,4 @@
-# deterministic-dice
+# 🎲 deterministic-dice
 
 Deterministic random number generator seeded by a bytes32 hash.
 
