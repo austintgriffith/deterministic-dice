@@ -1,6 +1,6 @@
 {
   "name": "deterministic-dice",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Deterministic random number generator seeded by a bytes32 hash",
   "type": "module",
   "main": "./dist/index.js",
@@ -37,4 +37,3 @@
     "typescript": "^5.3.3"
   }
 }
-
