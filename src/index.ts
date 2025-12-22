@@ -16,10 +16,10 @@ export class DeterministicDice {
   }
 
   /**
-   * Roll a random number from 0 to max (inclusive).
+   * Roll a random number from 0 to n-1 (n possible values).
    */
-  roll(max: number): number {
-    const range = max + 1;
+  roll(n: number): number {
+    const range = n;
     const bitsNeeded = Math.ceil(Math.log2(range));
     const hexCharsNeeded = Math.max(1, Math.ceil(bitsNeeded / 4));
     const maxValue = Math.pow(16, hexCharsNeeded);
