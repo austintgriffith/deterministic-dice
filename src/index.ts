@@ -1,5 +1,5 @@
-import { sha256 } from "@noble/hashes/sha256";
-import { bytesToHex } from "@noble/hashes/utils";
+import { keccak_256 } from "@noble/hashes/sha3";
+import { bytesToHex, hexToBytes } from "@noble/hashes/utils";
 
 /**
  * Deterministic random number generator seeded by a bytes32 hash.
@@ -37,7 +37,9 @@ export class DeterministicDice {
     let result = 0;
     for (let i = 0; i < count; i++) {
       if (this.position >= this.entropy.length) {
-        this.entropy = bytesToHex(sha256(this.entropy));
+        // Convert hex string to bytes, hash the raw bytes (for Solidity parity)
+        const bytes = hexToBytes(this.entropy);
+        this.entropy = bytesToHex(keccak_256(bytes));
         this.position = 0;
       }
       result = (result << 4) + parseInt(this.entropy[this.position], 16);

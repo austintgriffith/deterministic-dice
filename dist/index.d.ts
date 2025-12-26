@@ -6,9 +6,9 @@ export declare class DeterministicDice {
     private position;
     constructor(randomHash: string);
     /**
-     * Roll a random number from 0 to max (inclusive).
+     * Roll a random number from 0 to n-1 (n possible values).
      */
-    roll(max: number): number;
+    roll(n: number): number;
     private consumeHex;
 }
 export default DeterministicDice;
